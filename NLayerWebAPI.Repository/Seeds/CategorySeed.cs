@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace NLayerWebAPI.Repository.Seeds
 {
-	internal class CategorySeed : IEntityTypeConfiguration<CategorySeed>
+	internal class CategorySeed : IEntityTypeConfiguration<Category>
 	{
-		public void Configure(EntityTypeBuilder<CategorySeed> builder)
+		public void Configure(EntityTypeBuilder<Category> builder)
 		{
 			builder.HasData(
 				new Category { Id = 1, Name = "Pencils" },
