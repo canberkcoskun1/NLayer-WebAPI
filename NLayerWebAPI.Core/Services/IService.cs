@@ -10,7 +10,6 @@ namespace NLayerWebAPI.Core.Services
 	public interface IService<T> where T : class
 	{
 		// API isteklerini işlemek ve iş mantığını uygulamak için vardır. IGenericRepos arabirimini kullanarak veritabanı işlemlerini çağırır.
-
 		Task<IEnumerable<T>> GetAllAsync();
 		Task<T> GetByIdAsync(int id);
 		IQueryable<T> Async(Expression<Func<T, bool>> expression);
