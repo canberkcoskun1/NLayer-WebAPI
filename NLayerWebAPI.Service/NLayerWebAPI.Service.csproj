@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NLayerWebAPI.Repository\NLayerWebAPI.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
