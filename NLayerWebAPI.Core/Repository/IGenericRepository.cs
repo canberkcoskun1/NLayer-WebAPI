@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -22,5 +23,6 @@ namespace NLayerWebAPI.Core.Repository
 		void Remove(T entity);
 		void RemoveRange(IEnumerable<T> entities);
 		Task AddRangeAsync(IEnumerable<T> entities);
+		
 	}
 }

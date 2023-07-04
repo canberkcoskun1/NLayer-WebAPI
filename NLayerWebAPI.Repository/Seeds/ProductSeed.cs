@@ -17,7 +17,7 @@ namespace NLayerWebAPI.Repository.Seeds
 			new Product
 			{
 				Id = 1,
-				
+
 				Name = "Faber Castell",
 				Stock = 10,
 				Price = 100,
@@ -25,7 +25,7 @@ namespace NLayerWebAPI.Repository.Seeds
 			},
 			new Product
 			{
-				Id = 1,
+				Id = 2,
 				CategoryId = 1,
 				Name = "Rotring",
 				Stock = 12,
@@ -34,7 +34,7 @@ namespace NLayerWebAPI.Repository.Seeds
 			},
 			new Product
 			{
-				Id = 1,
+				Id = 3,
 				CategoryId = 2,
 				Name = "Nutuk",
 				Stock = 15,
@@ -43,7 +43,7 @@ namespace NLayerWebAPI.Repository.Seeds
 			},
 			new Product
 			{
-				Id = 2,
+				Id = 4,
 				CategoryId = 2,
 				Name = "The 100",
 				Stock = 5,
@@ -52,7 +52,7 @@ namespace NLayerWebAPI.Repository.Seeds
 			},
 			new Product
 			{
-				Id = 1,
+				Id = 5,
 				CategoryId = 3,
 				Name = "GIPTA",
 				Stock = 4,

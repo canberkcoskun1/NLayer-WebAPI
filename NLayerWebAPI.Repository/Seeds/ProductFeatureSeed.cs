@@ -13,7 +13,8 @@ namespace NLayerWebAPI.Repository.Seeds
 	{
 		public void Configure(EntityTypeBuilder<ProductFeature> builder)
 		{
-			builder.HasData(new ProductFeature
+			builder.HasData(
+			new ProductFeature
 			{
 				Id = 1,
 				ProductId = 1,
@@ -31,7 +32,6 @@ namespace NLayerWebAPI.Repository.Seeds
 				Height = 2,
 
 			}
-			
 			);
 		}
 	}
