@@ -12,7 +12,7 @@ using NLayerWebAPI.Repository.Context;
 namespace NLayerWebAPI.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230704144128_initMig")]
+    [Migration("20230704155018_initMig")]
     partial class initMig
     {
         /// <inheritdoc />
@@ -110,8 +110,8 @@ namespace NLayerWebAPI.Repository.Migrations
                         new
                         {
                             Id = 1,
-                            CategoryId = 0,
-                            CreatedDate = new DateTime(2023, 7, 4, 17, 41, 28, 268, DateTimeKind.Local).AddTicks(3912),
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4279),
                             Name = "Faber Castell",
                             Price = 100m,
                             Stock = 10,
@@ -121,7 +121,7 @@ namespace NLayerWebAPI.Repository.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 7, 4, 17, 41, 28, 268, DateTimeKind.Local).AddTicks(3924),
+                            CreatedDate = new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4290),
                             Name = "Rotring",
                             Price = 90m,
                             Stock = 12,
@@ -131,7 +131,7 @@ namespace NLayerWebAPI.Repository.Migrations
                         {
                             Id = 3,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 7, 4, 17, 41, 28, 268, DateTimeKind.Local).AddTicks(3925),
+                            CreatedDate = new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4291),
                             Name = "Nutuk",
                             Price = 150m,
                             Stock = 15,
@@ -141,7 +141,7 @@ namespace NLayerWebAPI.Repository.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 7, 4, 17, 41, 28, 268, DateTimeKind.Local).AddTicks(3926),
+                            CreatedDate = new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4293),
                             Name = "The 100",
                             Price = 100m,
                             Stock = 5,
@@ -150,8 +150,8 @@ namespace NLayerWebAPI.Repository.Migrations
                         new
                         {
                             Id = 5,
-                            CategoryId = 3,
-                            CreatedDate = new DateTime(2023, 7, 4, 17, 41, 28, 268, DateTimeKind.Local).AddTicks(3927),
+                            CategoryId = 2,
+                            CreatedDate = new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4294),
                             Name = "GIPTA",
                             Price = 45m,
                             Stock = 4,
@@ -209,7 +209,7 @@ namespace NLayerWebAPI.Repository.Migrations
             modelBuilder.Entity("NLayerWebAPI.Core.Entities.Product", b =>
                 {
                     b.HasOne("NLayerWebAPI.Core.Entities.Category", "Category")
-                        .WithMany("Product")
+                        .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -230,7 +230,7 @@ namespace NLayerWebAPI.Repository.Migrations
 
             modelBuilder.Entity("NLayerWebAPI.Core.Entities.Category", b =>
                 {
-                    b.Navigation("Product");
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("NLayerWebAPI.Core.Entities.Product", b =>

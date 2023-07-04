@@ -87,28 +87,23 @@ namespace NLayerWebAPI.Repository.Migrations
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "Id", "CategoryId", "CreatedDate", "Name", "Price", "Stock", "UpdatedDate" },
-                values: new object[] { 1, 0, new DateTime(2023, 7, 4, 17, 41, 28, 268, DateTimeKind.Local).AddTicks(3912), "Faber Castell", 100m, 10, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
-
-            migrationBuilder.InsertData(
-                table: "ProductFeatures",
-                columns: new[] { "Id", "Color", "Height", "ProductId", "Width" },
-                values: new object[] { 1, "Red", 2, 1, 7 });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "CategoryId", "CreatedDate", "Name", "Price", "Stock", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 2, 1, new DateTime(2023, 7, 4, 17, 41, 28, 268, DateTimeKind.Local).AddTicks(3924), "Rotring", 90m, 12, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, 2, new DateTime(2023, 7, 4, 17, 41, 28, 268, DateTimeKind.Local).AddTicks(3925), "Nutuk", 150m, 15, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 4, 2, new DateTime(2023, 7, 4, 17, 41, 28, 268, DateTimeKind.Local).AddTicks(3926), "The 100", 100m, 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 5, 3, new DateTime(2023, 7, 4, 17, 41, 28, 268, DateTimeKind.Local).AddTicks(3927), "GIPTA", 45m, 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 1, 1, new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4279), "Faber Castell", 100m, 10, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, 1, new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4290), "Rotring", 90m, 12, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, 2, new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4291), "Nutuk", 150m, 15, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 4, 2, new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4293), "The 100", 100m, 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 5, 2, new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4294), "GIPTA", 45m, 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
                 table: "ProductFeatures",
                 columns: new[] { "Id", "Color", "Height", "ProductId", "Width" },
-                values: new object[] { 2, "Brown", 2, 2, 7 });
+                values: new object[,]
+                {
+                    { 1, "Red", 2, 1, 7 },
+                    { 2, "Brown", 2, 2, 7 }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductFeatures_ProductId",
