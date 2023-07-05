@@ -38,7 +38,7 @@ namespace NLayerWebAPI.Repository.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -50,22 +50,19 @@ namespace NLayerWebAPI.Repository.Migrations
                         {
                             Id = 1,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Pencils",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Name = "Pencils"
                         },
                         new
                         {
                             Id = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Books",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Name = "Books"
                         },
                         new
                         {
                             Id = 3,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Notepads",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Name = "Notepads"
                         });
                 });
 
@@ -94,7 +91,7 @@ namespace NLayerWebAPI.Repository.Migrations
                     b.Property<int>("Stock")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -108,51 +105,46 @@ namespace NLayerWebAPI.Repository.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4279),
+                            CreatedDate = new DateTime(2023, 7, 5, 15, 9, 31, 195, DateTimeKind.Local).AddTicks(9370),
                             Name = "Faber Castell",
                             Price = 100m,
-                            Stock = 10,
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Stock = 10
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4290),
+                            CreatedDate = new DateTime(2023, 7, 5, 15, 9, 31, 195, DateTimeKind.Local).AddTicks(9381),
                             Name = "Rotring",
                             Price = 90m,
-                            Stock = 12,
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Stock = 12
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4291),
+                            CreatedDate = new DateTime(2023, 7, 5, 15, 9, 31, 195, DateTimeKind.Local).AddTicks(9382),
                             Name = "Nutuk",
                             Price = 150m,
-                            Stock = 15,
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Stock = 15
                         },
                         new
                         {
                             Id = 4,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4293),
+                            CreatedDate = new DateTime(2023, 7, 5, 15, 9, 31, 195, DateTimeKind.Local).AddTicks(9383),
                             Name = "The 100",
                             Price = 100m,
-                            Stock = 5,
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Stock = 5
                         },
                         new
                         {
                             Id = 5,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4294),
+                            CreatedDate = new DateTime(2023, 7, 5, 15, 9, 31, 195, DateTimeKind.Local).AddTicks(9384),
                             Name = "GIPTA",
                             Price = 45m,
-                            Stock = 4,
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Stock = 4
                         });
                 });
 

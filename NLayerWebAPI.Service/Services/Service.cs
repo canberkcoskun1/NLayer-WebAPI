@@ -2,12 +2,7 @@
 using NLayerWebAPI.Core.Repository;
 using NLayerWebAPI.Core.Services;
 using NLayerWebAPI.Core.UnitOfWorks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayerWebAPI.Service.Services
 {

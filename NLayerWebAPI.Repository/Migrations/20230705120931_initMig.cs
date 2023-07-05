@@ -21,7 +21,7 @@ namespace NLayerWebAPI.Repository.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -39,7 +39,7 @@ namespace NLayerWebAPI.Repository.Migrations
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -79,9 +79,9 @@ namespace NLayerWebAPI.Repository.Migrations
                 columns: new[] { "Id", "CreatedDate", "Name", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pencils", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Books", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Notepads", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pencils", null },
+                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Books", null },
+                    { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Notepads", null }
                 });
 
             migrationBuilder.InsertData(
@@ -89,11 +89,11 @@ namespace NLayerWebAPI.Repository.Migrations
                 columns: new[] { "Id", "CategoryId", "CreatedDate", "Name", "Price", "Stock", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4279), "Faber Castell", 100m, 10, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, 1, new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4290), "Rotring", 90m, 12, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, 2, new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4291), "Nutuk", 150m, 15, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 4, 2, new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4293), "The 100", 100m, 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 5, 2, new DateTime(2023, 7, 4, 18, 50, 18, 325, DateTimeKind.Local).AddTicks(4294), "GIPTA", 45m, 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 1, 1, new DateTime(2023, 7, 5, 15, 9, 31, 195, DateTimeKind.Local).AddTicks(9370), "Faber Castell", 100m, 10, null },
+                    { 2, 1, new DateTime(2023, 7, 5, 15, 9, 31, 195, DateTimeKind.Local).AddTicks(9381), "Rotring", 90m, 12, null },
+                    { 3, 2, new DateTime(2023, 7, 5, 15, 9, 31, 195, DateTimeKind.Local).AddTicks(9382), "Nutuk", 150m, 15, null },
+                    { 4, 2, new DateTime(2023, 7, 5, 15, 9, 31, 195, DateTimeKind.Local).AddTicks(9383), "The 100", 100m, 5, null },
+                    { 5, 2, new DateTime(2023, 7, 5, 15, 9, 31, 195, DateTimeKind.Local).AddTicks(9384), "GIPTA", 45m, 4, null }
                 });
 
             migrationBuilder.InsertData(

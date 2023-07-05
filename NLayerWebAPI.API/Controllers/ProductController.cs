@@ -12,14 +12,23 @@ namespace NLayerWebAPI.API.Controllers
 	{
 		private readonly IMapper _mapper;
 		private readonly IService<Product> _service;
+		private readonly IProductService _productService;
 
 
-
-		public ProductController(IService<Product> service, IMapper mapper)
+		public ProductController(IService<Product> service, IMapper mapper, IProductService productService)
 		{
 			_service = service;
 			_mapper = mapper;
+			_productService = productService;
 		}
+
+		// Get metodları çakışır. Biz özel bir metot yazdığımız için hangisini çağıracağını bilemez. Bu yüzden  bu özel metota [HttpGet("[action]")] belirttik.
+		[HttpGet("[action]")]
+		public async Task<IActionResult> GetProductWithCategory()
+		{
+			return CreateActionResult(await _productService.GetProductsWithCategory());
+		}
+
 		[HttpGet]
 		public async Task<IActionResult> All()
 		{
