@@ -12,11 +12,11 @@ namespace NLayerWebAPI.Core.Services
 		// API isteklerini işlemek ve iş mantığını uygulamak için vardır. IGenericRepos arabirimini kullanarak veritabanı işlemlerini çağırır.
 		Task<IEnumerable<T>> GetAllAsync();
 		Task<T> GetByIdAsync(int id);
-		IQueryable<T> Async(Expression<Func<T, bool>> expression);
+		IQueryable<T> Where(Expression<Func<T, bool>> expression);
 		Task<bool> AnyAsync(Expression<Func<T, bool>> expression);
 		Task<T> AddAsync(T entity);
 		Task UpdateAsync(T entity);
-		Task RemoveAsync(int id);
+		Task RemoveAsync(T entity);
 		Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities);
 		Task RemoveRangeAsync(IEnumerable<T> entities);
 

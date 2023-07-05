@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLayerWebAPI.Core.UnitOfWorks
 {
-	public interface IUnifOfWork
+	public interface IUnitOfWork
 	{
 		void Commit();
 		Task CommitAsync();

@@ -24,7 +24,7 @@ namespace NLayerWebAPI.API
 			builder.Services.AddSwaggerGen();
 
 
-			builder.Services.AddScoped<IUnifOfWork, UnitOfWork>();
+			builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 			builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 			//DbContext
