@@ -2,10 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using NLayerWebAPI.Core.Repository;
+using NLayerWebAPI.Core.Services;
 using NLayerWebAPI.Core.UnitOfWorks;
 using NLayerWebAPI.Repository.Context;
 using NLayerWebAPI.Repository.Repository;
 using NLayerWebAPI.Repository.UnitOfWorks;
+using NLayerWebAPI.Service.Mapping;
+using NLayerWebAPI.Service.Services;
 using System.Reflection;
 
 namespace NLayerWebAPI.API
@@ -26,6 +29,9 @@ namespace NLayerWebAPI.API
 
 			builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 			builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+			builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+			//AutoMapper
+			builder.Services.AddAutoMapper(typeof(MapProfile));
 
 			//DbContext
 			builder.Services.AddDbContext<AppDbContext>(x =>
