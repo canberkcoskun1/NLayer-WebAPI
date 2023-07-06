@@ -14,6 +14,7 @@ namespace NLayerWebAPI.Service.Mapping
             CreateMap<ProductUpdateDto, Product>();
             //ProductUpdateDto'da Reverse mape gerek yok entitye çevireceğimiz için.
             CreateMap<Product, ProductsWithCategoryDto>();
+            CreateMap<Category,CategoryWithProductsDto>();
 
 
         }

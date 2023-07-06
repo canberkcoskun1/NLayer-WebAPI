@@ -23,6 +23,7 @@ namespace NLayerWebAPI.API.Controllers
 		}
 
 		// Get metodları çakışır. Biz özel bir metot yazdığımız için hangisini çağıracağını bilemez. Bu yüzden  bu özel metota [HttpGet("[action]")] belirttik.
+		// api.com/products/getproductswithcategory 
 		[HttpGet("[action]")]
 		public async Task<IActionResult> GetProductWithCategory()
 		{
