@@ -1,7 +1,9 @@
 
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using NLayerWebAPI.API.Filters;
 using NLayerWebAPI.Core.Repository;
 using NLayerWebAPI.Core.Services;
 using NLayerWebAPI.Core.UnitOfWorks;
@@ -23,7 +25,12 @@ namespace NLayerWebAPI.API
 
 			// Add services to the container.
 
-			builder.Services.AddControllers().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<ProductDtoValidator>());
+			builder.Services.AddControllers(options => options.Filters.Add(new ValidateFilterAttribute())).AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<ProductDtoValidator>());
+			builder.Services.Configure<ApiBehaviorOptions>(options =>
+			{
+				// Kendi yazdýðýmýz filtreyi kullanmamýzý saðlar.
+				options.SuppressModelStateInvalidFilter = true;
+			});
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
@@ -66,6 +73,7 @@ namespace NLayerWebAPI.API
 			}
 
 			app.UseHttpsRedirection();
+			app.UseExceptionHandler();
 
 			app.UseAuthorization();
 
