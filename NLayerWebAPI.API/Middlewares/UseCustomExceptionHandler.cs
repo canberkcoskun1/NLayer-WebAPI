@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using NLayerWebAPI.Core.DTOs;
 using NLayerWebAPI.Service.Exceptions;
+using System.Net;
 using System.Text.Json;
 
 namespace NLayerWebAPI.API.Middlewares
@@ -8,7 +9,7 @@ namespace NLayerWebAPI.API.Middlewares
 	public static class UseCustomExceptionHandler
 	{
 		// Extension metodları ilgili sınıflara işlevsellik eklemek ve istemci kodu tarafından doğrudan erişilebilir hale getirmek için statik bir sınıfta tanımlamak gerekmektedir.
-		public static void UserCustomException(this IApplicationBuilder app)
+		public static void UseCustomException(this IApplicationBuilder app)
 		{
 			// Run sonlandırıcı middlewaredir. 
 			app.UseExceptionHandler(config =>
@@ -18,6 +19,7 @@ namespace NLayerWebAPI.API.Middlewares
 
 					// Bu kısımda hatanın döneceği tipi belirledik.
 					context.Response.ContentType = "application/json";
+
 					// Burada ise hatayı verecek interface'i çağırıp fırlatılan hatayı tutarız. Bunu ayırmamız gerekiyor client tarafından bir hata olabilir bu yüzden bir Client'a ait exception sınıfı oluşturacağız. Uygulamadan kaynaklı hata mı yoksa clienttan kaynaklı olup olmadığını ayırmak için yapıyoruz.
 
 					var exceptionFeature = context.Features.Get<IExceptionHandlerFeature>();
@@ -26,8 +28,14 @@ namespace NLayerWebAPI.API.Middlewares
 					// Burada 400 ve 500'e ait hataları karşılaştırmak için switch kullandık. 
 					var statusCode = exceptionFeature.Error switch
 					{
+						//ClientSideException => HttpStatusCode.BadRequest,
 						ClientSideException => 400,
-						_ => 500
+						//NotFoundException => HttpStatusCode.NotFound,
+						NotFoundException => 404, 
+
+
+						_ => 500,
+						//_ => HttpStatusCode.InternalServerError,
 					};
 
 					context.Response.StatusCode = statusCode;

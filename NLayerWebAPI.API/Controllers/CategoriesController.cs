@@ -13,7 +13,7 @@ namespace NLayerWebAPI.API.Controllers
 		{
 			_categoryService = categoryService;
 		}
-
+		
 		[HttpGet("[action]/{categoryId}")]
 		public async Task<IActionResult> GetSingleCategoryByIdWithProducts(int categoryId)
 		{

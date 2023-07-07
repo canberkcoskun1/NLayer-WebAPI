@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using NLayerWebAPI.API.Filters;
+using NLayerWebAPI.API.Middlewares;
 using NLayerWebAPI.Core.Repository;
 using NLayerWebAPI.Core.Services;
 using NLayerWebAPI.Core.UnitOfWorks;
@@ -73,7 +74,8 @@ namespace NLayerWebAPI.API
 			}
 
 			app.UseHttpsRedirection();
-			app.UseExceptionHandler();
+			app.UseCustomException();
+			//app.UseMiddleware<UseCustomExceptionHandler>();
 
 			app.UseAuthorization();
 

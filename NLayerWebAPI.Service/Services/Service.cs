@@ -2,6 +2,7 @@
 using NLayerWebAPI.Core.Repository;
 using NLayerWebAPI.Core.Services;
 using NLayerWebAPI.Core.UnitOfWorks;
+using NLayerWebAPI.Service.Exceptions;
 using System.Linq.Expressions;
 
 namespace NLayerWebAPI.Service.Services
@@ -45,7 +46,14 @@ namespace NLayerWebAPI.Service.Services
 
 		public async Task<T> GetByIdAsync(int id)
 		{
-			return await _repository.GetByIdAsync(id);
+			var hasProduct = await _repository.GetByIdAsync(id);
+
+			if(hasProduct == null)
+			{
+				throw new NotFoundException($"{typeof(T).Name}({id}) not found");
+				
+			}
+			return hasProduct;
 		}
 
 		public async Task RemoveAsync(T entity)
