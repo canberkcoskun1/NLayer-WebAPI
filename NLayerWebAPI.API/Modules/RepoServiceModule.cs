@@ -9,6 +9,7 @@ using NLayerWebAPI.Service.Services;
 using NLayerWebAPI.Core.Services;
 using NLayerWebAPI.Repository.UnitOfWorks;
 using NLayerWebAPI.Core.UnitOfWorks;
+using NLayerWebAPI.Caching;
 
 namespace NLayerWebAPI.API.Modules
 {
@@ -25,6 +26,10 @@ namespace NLayerWebAPI.API.Modules
 			// Uow de eklenir 
 			builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
 
+			//Caching , 
+			builder.RegisterType<ProductServiceWithCaching>().As<IProductService>();
+
+
 			// Assemblyler alınır.
 
 			var apiAssembly = Assembly.GetExecutingAssembly();
@@ -40,6 +45,7 @@ namespace NLayerWebAPI.API.Modules
 			// Repos
 			builder.RegisterAssemblyTypes(apiAssembly,repoAssembly,serviceAssembly).Where(x => x.Name.EndsWith("Repository")).AsImplementedInterfaces().InstancePerLifetimeScope();
 			builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
+
 		}
 	}
 }
