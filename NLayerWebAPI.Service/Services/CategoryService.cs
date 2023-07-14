@@ -4,6 +4,7 @@ using NLayerWebAPI.Core.Entities;
 using NLayerWebAPI.Core.Repository;
 using NLayerWebAPI.Core.Services;
 using NLayerWebAPI.Core.UnitOfWorks;
+using NLayerWebAPI.Service.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;

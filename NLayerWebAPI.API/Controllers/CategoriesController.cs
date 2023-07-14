@@ -1,6 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using NLayerWebAPI.API.Filters;
+using NLayerWebAPI.API.Middlewares;
+using NLayerWebAPI.Core.Entities;
 using NLayerWebAPI.Core.Services;
+using NLayerWebAPI.Service.Exceptions;
 
 namespace NLayerWebAPI.API.Controllers
 {
@@ -13,6 +18,7 @@ namespace NLayerWebAPI.API.Controllers
 		{
 			_categoryService = categoryService;
 		}
+
 		
 		[HttpGet("[action]/{categoryId}")]
 		public async Task<IActionResult> GetSingleCategoryByIdWithProducts(int categoryId)

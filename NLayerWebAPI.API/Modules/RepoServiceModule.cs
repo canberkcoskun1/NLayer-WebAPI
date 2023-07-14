@@ -26,19 +26,14 @@ namespace NLayerWebAPI.API.Modules
 			// Uow de eklenir 
 			builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
 
-			//Caching , 
+			//Caching
 			builder.RegisterType<ProductServiceWithCaching>().As<IProductService>();
 
 
 			// Assemblyler alınır.
-
 			var apiAssembly = Assembly.GetExecutingAssembly();
 			var repoAssembly = Assembly.GetAssembly(typeof(AppDbContext));
 			var serviceAssembly = Assembly.GetAssembly(typeof(MapProfile));
-
-
-
-
 
 
 			// Interface'lerin son ekinden ve Repositorylerin son ekinden yararlanıp (service, repos vb.) implement edeceğiz ve AddScoped yerine geçen InstanceForLifetimeScope özelliğini kullanacağız.
